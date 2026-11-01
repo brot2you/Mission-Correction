@@ -1,2 +1,1 @@
-Facultatif : carte.png (carte des îles, 1000 × 620) et mascotte.png.
-Toutes les autres illustrations sont déjà intégrées dans index.html.
+Facultatif : mascotte.png. Toutes les autres illustrations sont intégrées dans index.html.

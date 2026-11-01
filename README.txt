@@ -29,15 +29,26 @@ CONTENU
 - Fiche bilan imprimable, tableau des codes imprimable, export/import JSON.
 - Mode lecture adaptée (Lexend + espacement), texte agrandi, sons désactivables.
 
-ILLUSTRATIONS
-Intégrées dans index.html (WebP optimisé, ~1 Mo au total) : le fichier reste autonome.
-- Fond de l'accueil : bibliothèque (écrans larges) / bureau vertical (smartphone, tablette en portrait)
-- Logo en haut, équipe des 4 détectives juste derrière la première rangée de boutons
-- 8 boutons illustrés du QG (4 colonnes sur PC, 2 sur smartphone)
-- Portraits de Sacha, Margot, Hugo et Nadia découpés dans l'image de l'équipe
-  (avatars, guides des enquêtes et des missions)
-Optionnel, dossier images/ : carte.png (carte des îles, 1000 × 620) et mascotte.png
-(page « La règle ») remplacent les décors dessinés s'ils sont présents.
+ILLUSTRATIONS (toutes intégrées dans index.html, WebP optimisé, ~2,5 Mo)
+- Accueil : fond bibliothèque (PC) / bureau vertical (smartphone), logo, équipe, 8 boutons
+- Bouton maison (retour au QG) sur toutes les pages
+- Carte de l'île : 7 lieux + tribunal cliquables, lettres du code affichées sur les lieux résolus
+  (positions réglables dans data-config → mapPct, en % de la largeur et de la hauteur)
+- Pages des lieux : illustration du bâtiment ; décors (boussole, lanterne, loupe, parchemin)
+- Ma collection : cartes-royaumes par famille (grisées et cadenassées tant que l'affaire n'est pas classée)
+- Mes badges : blasons fantasy (grisés tant que le badge n'est pas obtenu)
+- La mallette : une mallette illustrée par outil d'enquête
+- Portraits de Sacha, Margot, Hugo et Nadia (guides de l'histoire)
+- 12 avatars de profil au choix (Le Limier, L'Exploratrice, Le Chevalier, La Sage du temple,
+  Le Savant des ruines, L'Archère de la forêt, Le Corsaire du phare, La Cartographe,
+  Le Juge-enquêteur, La Grande Archiviste, Le Bouffon malicieux, Flair le chien détective),
+  modifiables dans les réglages (⚙)
+Optionnel : images/mascotte.png (page « La règle »).
+
+SONS
+Synthétisés en direct (aucun fichier audio) : pas feutrés, pages de dossier, clochette
+d'indice, contrebasse de fausse piste, coup de tampon, serrure qui cède, machine à écrire,
+nappe de suspense à l'ouverture d'une mission, vibraphone de résolution. Désactivables dans les réglages.
 
 MODIFIER LE CONTENU
 Les données sont dans les blocs <script type="application/json"> en bas de index.html :
