@@ -1,0 +1,2 @@
+Déposez ici les PNG listés dans README.txt (accueil.png, carte.png, guide-sacha.png…).
+Sans image, l'appli affiche ses décors dessinés.
