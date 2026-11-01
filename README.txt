@@ -29,21 +29,15 @@ CONTENU
 - Fiche bilan imprimable, tableau des codes imprimable, export/import JSON.
 - Mode lecture adaptée (Lexend + espacement), texte agrandi, sons désactivables.
 
-ILLUSTRATIONS (facultatif) — dossier images/
-L'appli fonctionne sans aucune image (décors dessinés en SVG/CSS).
-Chaque PNG déposé avec le bon nom remplace automatiquement son décor :
-  accueil.png        bandeau d'accueil (titre + les 4 détectives), large ~ 2:1 ou 3:1
-  qg.png             fond du bureau du QG (sous les 8 tuiles)
-  carte.png          carte des îles, format 1000 × 620 (ou même proportion)
-                     → zones cliquables placées aux coordonnées de "map" dans
-                       data-config (Orthographe en haut à gauche, Grammaire en haut
-                       à droite, etc.) : à ajuster si votre carte diffère
-  mascotte.png       détective qui pointe du doigt (page « La règle »)
-  guide-sacha.png, guide-margot.png, guide-hugo.png, guide-nadia.png
-                     portraits carrés des 4 équipiers (avatars, bulles de dialogue)
-  icone-copie.png, icone-regles.png, icone-defis.png, icone-missions.png,
-  icone-parcours.png, icone-badges.png, icone-collection.png, icone-prof.png
-                     icônes carrées des tuiles du QG (fond transparent conseillé)
+ILLUSTRATIONS
+Intégrées dans index.html (WebP optimisé, ~1 Mo au total) : le fichier reste autonome.
+- Fond de l'accueil : bibliothèque (écrans larges) / bureau vertical (smartphone, tablette en portrait)
+- Logo en haut, équipe des 4 détectives juste derrière la première rangée de boutons
+- 8 boutons illustrés du QG (4 colonnes sur PC, 2 sur smartphone)
+- Portraits de Sacha, Margot, Hugo et Nadia découpés dans l'image de l'équipe
+  (avatars, guides des enquêtes et des missions)
+Optionnel, dossier images/ : carte.png (carte des îles, 1000 × 620) et mascotte.png
+(page « La règle ») remplacent les décors dessinés s'ils sont présents.
 
 MODIFIER LE CONTENU
 Les données sont dans les blocs <script type="application/json"> en bas de index.html :
