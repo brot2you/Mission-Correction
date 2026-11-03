@@ -28,7 +28,8 @@ html.size-large{font-size:19px}
 *{box-sizing:border-box}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-html{background:#101a33}
+html{background:#101a33;overflow-x:hidden;overflow-x:clip}
+body{overflow-x:hidden;overflow-x:clip;position:relative}
 body{margin:0;min-height:100vh;font-family:var(--ui);color:var(--ink);font-size:1.02rem;line-height:1.5;
   background:radial-gradient(ellipse 120% 70% at 50% 0%,#34508a 0%,#1d2d55 45%,#101a33 100%) fixed;}
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.55;
@@ -442,16 +443,16 @@ footer b{color:var(--gold)}
 
 /* ---------- Accueil illustré ---------- */
 .logo img{height:40px;width:auto;display:block;filter:drop-shadow(0 2px 0 rgba(0,0,0,.35))}
-body.is-home{background:#16223f}
+body.is-home{background:transparent}
 html:has(body.is-home){background:#1d2d55}
 @media (hover:none){.menu-btn:hover,.tile:hover,.btn-house:hover,.card-btn:hover .rcard2{transform:none}}
 body.is-home::after{display:none}
 body.is-home footer{color:#f3e2b8;text-shadow:0 1px 2px #000}
-.home-bg{position:fixed;inset:0;z-index:-1;background:#1d2d55}
-.home-bg i{position:absolute;inset:0;background-size:cover;background-position:center 30%}
-.home-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,26,51,.35) 0%,rgba(16,26,51,.05) 30%,rgba(16,26,51,.25) 65%,rgba(16,26,51,.75) 100%)}
+.home-bg{position:fixed;top:0;left:0;width:100%;height:100vh;height:100lvh;z-index:-1;background:#16223f;overflow:hidden;pointer-events:none}
+.home-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.home-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,26,51,.30) 0%,rgba(16,26,51,.05) 30%,rgba(16,26,51,.25) 65%,rgba(16,26,51,.75) 100%)}
 .bg-mob{display:none}
-@media (max-width:760px),(max-aspect-ratio:4/5){.bg-pc{display:none}.bg-mob{display:block}}
+@media (max-width:760px),(max-aspect-ratio:4/5){.home-bg .bg-pc{display:none}.home-bg .bg-mob{display:block}}
 .home2{display:flex;flex-direction:column;align-items:center;gap:10px}
 main:has(.home2){padding-top:8px}
 .home-logo{margin:4px 0 0;display:flex;flex-direction:column;align-items:center;gap:6px;width:100%}
@@ -509,7 +510,7 @@ main:has(.home2){padding-top:8px}
 .deco-l{left:-12px;transform:rotate(-12deg)}.deco-r{right:-8px;transform:rotate(8deg)}
 @media (max-width:520px){.deco-l,.deco-r{width:46px;top:-18px}}
 .next-card{position:relative}
-.deco-corner{position:absolute;right:-10px;top:-18px;width:62px;height:auto;transform:rotate(18deg);filter:drop-shadow(0 4px 4px rgba(0,0,0,.35))}
+.deco-corner{position:absolute;right:8px;top:-18px;width:62px;height:auto;transform:rotate(18deg);filter:drop-shadow(0 4px 4px rgba(0,0,0,.35))}
 
 /* ---------- Mallette ---------- */
 .tool-img{width:48px;height:auto;flex:none;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
@@ -565,33 +566,9 @@ main:has(.home2){padding-top:8px}
 .home-by{margin-top:-6px;padding:.12em .9em .16em;border-radius:999px;font-family:var(--ui);font-weight:700;font-size:clamp(.8rem,2.2vw,1rem);letter-spacing:.14em;
   color:#fff3c4;background:linear-gradient(#2a3f78,#1b2a52);border:2px solid #f2c14e;box-shadow:0 3px 0 rgba(0,0,0,.45),0 6px 12px rgba(0,0,0,.35);text-shadow:0 1px 0 #000}
 
-/* ---------- Scène d'accueil soudée à l'illustration ---------- */
-body.is-home main{max-width:none;padding:0 0 60px}
-.scene{position:relative;container-type:inline-size;margin:0 auto;width:min(100%,calc((100vh - 64px) * 1.7003));aspect-ratio:1600/941;overflow:hidden}
-.scene-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.scene-bg.mob{display:none}
-.scene::after{content:"";position:absolute;inset:auto 0 0 0;height:14%;background:linear-gradient(transparent,#16223f);pointer-events:none}
-.scene-logo{position:absolute;z-index:3;left:50%;top:2.5%;width:22%;margin:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center}
-.scene-logo img{display:block;width:100%;height:auto;filter:drop-shadow(0 .6cqw 1cqw rgba(0,0,0,.55))}
-.scene .home-by{margin-top:-.5cqw;font-size:max(10px,.95cqw);padding:.15em .9em .18em}
-.scene-team{position:absolute;z-index:1;left:50%;top:25%;width:30%;height:auto;transform:translateX(-50%);pointer-events:none;filter:drop-shadow(0 .8cqw 1.2cqw rgba(0,0,0,.5))}
-.scene-menu{position:absolute;z-index:2;left:50%;top:50%;width:44%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2cqw}
-.scene .menu-btn{filter:drop-shadow(0 .6cqw .8cqw rgba(0,0,0,.5))}
-.scene.no-menu .scene-team{top:32%;width:34%}
-@media (max-width:760px),(max-aspect-ratio:4/5){
-  .scene{width:100%;aspect-ratio:860/1530}
-  .scene-bg.pc{display:none}.scene-bg.mob{display:block}
-  .scene-logo{top:2%;width:76%}
-  .scene .home-by{font-size:max(10px,3.1cqw)}
-  .scene-team{top:29%;width:90%}
-  .scene-menu{top:56%;width:96%;gap:1.5cqw}
-  .scene.no-menu{aspect-ratio:860/1150}
-  .scene.no-menu .scene-team{top:34%;width:94%}
-}
-.home2 .home-cards,.home2 .home-actions{width:calc(100% - 28px);max-width:980px;margin:0 auto}
-.home2 .home-cards{margin-top:-4px}
-.setup .setup-card{width:calc(100% - 28px);max-width:820px;margin:-14% auto 0;position:relative;z-index:4}
-@media (max-width:760px),(max-aspect-ratio:4/5){.setup .setup-card{margin-top:-22%}}
+html,body{max-width:100%}
+.home2,.home-stage,.home-menu{max-width:100%}
+main{overflow-x:clip}
 
 </style>
 </head>
@@ -1075,19 +1052,15 @@ body.is-home main{max-width:none;padding:0 0 60px}
     ['parcours', 'Mon parcours'], ['badges', 'Mes badges'],
     ['collection', 'Ma collection'], ['prof', 'Mode professeur']
   ];
-  function homeScene(withMenu) {
-    var bg = (IMG['fond-pc'] ? '<img class="scene-bg pc" src="' + IMG['fond-pc'] + '" alt="">' : '') +
-      (IMG['fond-mobile'] ? '<img class="scene-bg mob" src="' + IMG['fond-mobile'] + '" alt="">' : '');
-    return '<div class="scene' + (withMenu ? '' : ' no-menu') + '">' + bg +
-      '<h1 class="scene-logo">' + (IMG.logo ? '<img src="' + IMG.logo + '" alt="Mission Correction">' : '<span class="logo-big">Mission<br>Correction</span>') +
+  function homeBg() {
+    return '<div class="home-bg" aria-hidden="true">' +
+      (IMG['fond-pc'] ? '<img class="bg-pc" src="' + IMG['fond-pc'] + '" alt="">' : '') +
+      (IMG['fond-mobile'] ? '<img class="bg-mob" src="' + IMG['fond-mobile'] + '" alt="">' : '') + '</div>';
+  }
+  function homeLogo() {
+    return '<h1 class="home-logo">' + (IMG.logo ? '<img src="' + IMG.logo + '" alt="Mission Correction">' : '<span class="logo-big">Mission<br>Correction</span>') +
       '<span class="home-by">by BROT2YOU</span>' +
-      '<span class="home-tagline">Le jeu qui t\'aide à corriger, comprendre et progresser en français !</span></h1>' +
-      (IMG.equipe ? '<img class="scene-team" src="' + IMG.equipe + '" alt="Sacha, Margot, Hugo et Nadia, l\'équipe de détectives">' : '') +
-      (withMenu ? '<nav class="scene-menu" aria-label="Menu du QG">' + MENU.map(function (t) {
-        return '<button class="menu-btn" data-go="' + t[0] + '" aria-label="' + esc(t[1]) + '">' +
-          (IMG['btn-' + t[0]] ? '<img src="' + IMG['btn-' + t[0]] + '" alt="">' : '<span class="tile">' + ICON[t[0]] + '<b>' + esc(t[1]) + '</b></span>') + '</button>';
-      }).join('') + '</nav>' : '') +
-      '</div>';
+      '<span class="home-tagline">Le jeu qui t\'aide à corriger, comprendre et progresser en français !</span></h1>';
   }
   function viewHome() {
     if (!state.profile) { return viewSetup(); }
@@ -1095,7 +1068,13 @@ body.is-home main{max-width:none;padding:0 0 60px}
     var next = suggestion();
     var parc = [];
     each(state.parcours, function (k, v) { parc.push(v); });
-    return '<section class="home2">' + homeScene(true) +
+    return '<section class="home2">' + homeBg() + homeLogo() +
+      '<div class="home-stage">' +
+      (IMG.equipe ? '<img class="home-team" src="' + IMG.equipe + '" alt="Sacha, Margot, Hugo et Nadia, l\'équipe de détectives">' : '') +
+      '<nav class="home-menu" aria-label="Menu du QG">' + MENU.map(function (t) {
+        return '<button class="menu-btn" data-go="' + t[0] + '" aria-label="' + esc(t[1]) + '">' +
+          (IMG['btn-' + t[0]] ? '<img src="' + IMG['btn-' + t[0]] + '" alt="">' : '<span class="tile">' + ICON[t[0]] + '<b>' + esc(t[1]) + '</b></span>') + '</button>';
+      }).join('') + '</nav></div>' +
       '<div class="home-cards">' +
       '<div class="parch next-card">' + (IMG['deco-loupe'] ? '<img class="deco-corner" src="' + IMG['deco-loupe'] + '" alt="">' : '') + '<h3>Prochaine piste, ' + esc(p.name || 'enquêteur') + '</h3>' + next + '</div>' +
       (parc.length ? '<div class="parch next-card"><h3>Parcours du professeur</h3>' + parc.map(function (pc) {
@@ -1143,7 +1122,8 @@ body.is-home main{max-width:none;padding:0 0 60px}
   /* ================= PROFIL ================= */
   var setupTmp = { avatar: 'av01', level: 5 };
   function viewSetup() {
-    var html = '<section class="setup home2">' + homeScene(false) +
+    var html = '<section class="setup home2">' + homeBg() + homeLogo() +
+      (IMG.equipe ? '<img class="setup-team" src="' + IMG.equipe + '" alt="">' : '') +
       '<div class="parch pad setup-card">' + ribbon('Ton badge d\'enquêteur') +
       '<label class="field">Ton prénom ou ton surnom de détective<input class="input" id="setup-name" maxlength="24" autocomplete="off" placeholder="Ex. Loupe d\'or"></label>' +
       '<p class="field-label">Ta classe</p><div class="seg">' + [6, 5, 4, 3].map(function (l) {
